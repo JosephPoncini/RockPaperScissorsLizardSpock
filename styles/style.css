@@ -300,10 +300,10 @@
 .btn-primary{
     --bs-btn-bg: #1400FF;
     --bs-btn-border-color: #1400FF;
-    --bs-btn-hover-bg: #0b5ed7;
-    --bs-btn-hover-border-color: #0a58ca;
-    --bs-btn-active-bg: #0a58ca;
-    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-hover-bg: #301efe;
+    --bs-btn-hover-border-color: #301efe;
+    --bs-btn-active-bg: #301efe;
+    --bs-btn-active-border-color: #301efe;
     --bs-btn-disabled-bg: #1400FF;
     --bs-btn-disabled-border-color: #1400FF;
 }
