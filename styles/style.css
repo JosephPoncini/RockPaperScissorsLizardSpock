@@ -132,6 +132,11 @@
 }
 
 .medBtnTxt {
+    font-size: 30px;
+    color: black !important;
+}
+
+.smallBtnTxt {
     font-size: 20px;
     color: black !important;
 }
@@ -144,21 +149,25 @@
 .bigBtn {
     width: 45%;
     height: 13vh;
+    border-radius: 20px;
 }
 
 .roundsBtns {
     display: flex;
     justify-content: space-between;
+    border-radius: 20px;
 }
 
 .optionBtns {
     display: flex;
     justify-content: center;
+
 }
 
 .medBtn {
     width: 30%;
     height: 13vh;
+    border-radius: 20px;
 }
 
 .padding {
@@ -174,6 +183,7 @@
 .optionBtn {
     width: 30%;
     height: 8vh;
+    border-radius: 20px;
 }
 
 .faded {
@@ -246,10 +256,10 @@
 }
 
 .unclickable {
-    --bs-btn-hover-color:black;
-    --bs-btn-hover-bg: #dc3545;
-    --bs-btn-active-color:black;
-    --bs-btn-active-bg: #dc3545;
+    --bs-btn-hover-color:black !important;
+    --bs-btn-hover-bg: #C90000 !important;
+    --bs-btn-active-color:black !important;
+    --bs-btn-active-bg: #C90000 !important;
     cursor:default !important;
 }
 
@@ -288,39 +298,45 @@
 }
 
 .btn-primary{
-    --bs-btn-bg: #0d6efd;
-    --bs-btn-border-color: #0d6efd;
+    --bs-btn-bg: #1400FF;
+    --bs-btn-border-color: #1400FF;
     --bs-btn-hover-bg: #0b5ed7;
     --bs-btn-hover-border-color: #0a58ca;
     --bs-btn-active-bg: #0a58ca;
     --bs-btn-active-border-color: #0a53be;
-    --bs-btn-disabled-bg: #0d6efd;
-    --bs-btn-disabled-border-color: #0d6efd;
+    --bs-btn-disabled-bg: #1400FF;
+    --bs-btn-disabled-border-color: #1400FF;
 }
 
 .btn-danger{
-
+    --bs-btn-bg: #C90000;
+    --bs-btn-border-color: #C90000;
+    --bs-btn-hover-bg: #e90017;
+    --bs-btn-hover-border-color: #e90017;
+    --bs-btn-active-bg: #e90017;
+    --bs-btn-active-border-color: #e90017;
+    --bs-btn-disabled-bg: #C90000;
+    --bs-btn-disabled-border-color: #C90000;
 }
 
 .btn-warning{
-
+    --bs-btn-bg: #FA5A00;
+    --bs-btn-border-color: #FA5A00;
+    --bs-btn-hover-bg: #ff833b;
+    --bs-btn-hover-border-color: #ff833b;
+    --bs-btn-active-bg: #ff833b;
+    --bs-btn-active-border-color: #ff833b;
+    --bs-btn-disabled-bg: #FA5A00;
+    --bs-btn-disabled-border-color: #FA5A00;
 }
 
 .btn-success{
-
+    --bs-btn-bg: #027500;
+    --bs-btn-border-color: #027500;
+    --bs-btn-hover-bg: #03a100;
+    --bs-btn-hover-border-color: #03a100;
+    --bs-btn-active-bg: #03a100;
+    --bs-btn-active-border-color: #03a100;
+    --bs-btn-disabled-bg: #027500;
+    --bs-btn-disabled-border-color: #027500;
 }
-
-.btn-secondary{
-
-}
-
-/* <button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
-
-<button type="button" class="btn btn-link">Link</button> */
