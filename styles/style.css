@@ -1,0 +1,282 @@
+@font-face {
+    font-family: JotiOne;
+    src: url(../fonts/JotiOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: Kalam;
+    src: url(../fonts/Kalam-Regular.ttf);
+}
+
+#titleScreen {
+    height: 100%;
+}
+
+#rulesPage {
+    height: 100vh;
+}
+
+#playScreen {
+    height: 100vh;
+}
+
+#optionScreen {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+.off {
+    display: none !important;
+}
+
+.bg {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+
+.content {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bgimage1:before {
+    background-image: url(../assets/Backgrounds/__-drz-__-wXyf-U8HqiI-unsplash.jpg);
+}
+
+.bgimage2:before {
+    background-image: url(../assets/Backgrounds/2ni-mR1FNOifQus-unsplash.jpg);
+}
+
+.bgimage3:before {
+    background-image: url(../assets/Backgrounds/filip-gielda-VPavA7BBxK0-unsplash.jpg);
+}
+
+.bgimage4:before {
+    background-image: url(../assets/Backgrounds/luis-cardoso-tEApOHfv8xk-unsplash.jpg);
+}
+
+.bgimage5:before {
+    background-image: url(../assets/Backgrounds/marek-piwnicki-mFoT7h7nUjg-unsplash.jpg);
+}
+
+.bgimage6:before {
+    background-image: url(../assets/Backgrounds/parth-patel-o-VbJbhzQm4-unsplash.jpg);
+}
+
+.bgimage7:before {
+    background-image: url(../assets/Backgrounds/paul-szewczyk-gt3gK_Wob2g-unsplash.jpg);
+}
+
+.bgimage8:before {
+    background-image: url(../assets/Backgrounds/raimond-klavins-0OPixSJ22fg-unsplash.jpg);
+}
+
+.bgimage9:before {
+    background-image: url(../assets/Backgrounds/raimond-klavins-SNvHZnZSFKU-unsplash.jpg);
+}
+
+
+.bgimage10:before {
+    background-image: url(../assets/Backgrounds/raimond-klavins-xtmcvzvC1JY-unsplash.jpg);
+}
+
+.bgimage11:before {
+    background-image: url(../assets/Backgrounds/steve-sharp-rVK6Ym16bRY-unsplash.jpg);
+}
+
+.bgimage12:before {
+    background-image: url(../assets/Backgrounds/xuyu-chi-Lnrb3inbrVw-unsplash.jpg);
+}
+
+.bg:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-position: 50% 0;
+    background-size: 100% 100%;
+}
+
+.Joti {
+    font-family: JotiOne;
+}
+
+.Kalam {
+    font-family: Kalam;
+}
+
+.title {
+    font-size: 70px;
+    text-align: center;
+    width: fit-content;
+}
+
+.medTxt {
+    font-size: 40px;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    flex-wrap: nowrap;
+}
+
+.bigBtnTxt {
+    font-size: 50px;
+    color: black !important;
+}
+
+.medBtnTxt {
+    font-size: 20px;
+    color: black !important;
+}
+
+.matchUpBtns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bigBtn {
+    width: 45%;
+    height: 13vh;
+}
+
+.roundsBtns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.optionBtns {
+    display: flex;
+    justify-content: center;
+}
+
+.medBtn {
+    width: 30%;
+    height: 13vh;
+}
+
+.padding {
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+}
+
+.margins {
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+}
+
+.optionBtn {
+    width: 30%;
+    height: 8vh;
+}
+
+.faded {
+    opacity: 65%;
+}
+
+.backBtn {
+    width: max-content;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.legendImg {
+    width: 12.5vh;
+    justify-content: end;
+}
+
+.legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.simpleImage {
+    width: 65vh;
+}
+
+.scoreGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.elements {
+    display: flex;
+    justify-content: space-between;
+}
+
+.playerTxt {
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+.playTxt {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.fightBtn {
+    width: 90%;
+    height: 50%;
+    color: black;
+    font-size: 50px;
+}
+
+.optionPageBtn {
+    width: 20vw;
+    height: 45px;
+    font-size: large;
+}
+
+.black {
+    color: black
+}
+
+.btn-warning {
+    --bs-btn-hover-color: #ffffff;
+}
+
+.unclickable {
+    --bs-btn-hover-color:black;
+    --bs-btn-hover-bg: #dc3545;
+    --bs-btn-active-color:black;
+    --bs-btn-active-bg: #dc3545;
+    cursor:default !important;
+}
+
+.elementBtn{
+    cursor: pointer;
+    border-radius: 7vh;
+}
+
+.elementBtn:hover{
+    background-color: rgba(0, 100, 100, 0.9);
+} 
+
+.nextBtn{
+    width: 20vh;
+    height: min-content;
+    align-self: end;
+}
+
+.winScreenTxt{
+    text-align: center;
+    font-size: 30px;
+}
+
+.endQuitBtn{
+    width: 100%;
+    height: 20%;
+    color: black;
+    font-size: 50px;
+    border-radius: 20px;
+}

@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rock Paper Scissors Lizard Spock</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body id="body" class="bg bgimage1">
+  <div class="content">
+
+    <div id="titleScreen" class="d-flex justify-content-center align-self-center ">
+      <div class=" d-flex flex-column align-self-center">
+        <div class="Joti title">Let’s Play: Rock, Paper, <br> Scissors, Lizard, Spock</div>
+        <div class="matchUpBtns padding">
+          <button id="oneVOneBtn" type="button" class="btn btn-danger bigBtn Kalam bigBtnTxt">1 v. 1</button>
+          <button id="oneVCPUBtn" type="button" class="btn btn-danger bigBtn Kalam bigBtnTxt faded">1 v. CPU</button>
+        </div>
+        <div class="roundsBtns padding">
+          <button id="bestOfOneBtn" type="button" class="btn btn-warning medBtn Kalam medBtnTxt faded">Best of
+            1</button>
+          <button id="twoOutOfThreeBtn" type="button" class="btn btn-warning medBtn Kalam medBtnTxt">2 out of 3</button>
+          <button id="threeOutOfFiveBtn" type="button" class="btn btn-warning medBtn Kalam medBtnTxt faded">3 out of
+            5</button>
+        </div>
+        <div class="padding optionBtns">
+          <button id="rulesBtn" type="button" class="me-4 btn btn-success optionBtn Kalam medBtnTxt">See
+            Rules</button>
+          <button id="changeBackgroundBtn" type="button" class="ms-4 btn btn-primary optionBtn Kalam medBtnTxt">Change
+            Background</button>
+        </div>
+        <button id="playBtn" type="button"
+          class="btn btn-danger optionBtn margins align-self-center Kalam medBtnTxt">Play</button>
+      </div>
+    </div>
+
+
+
+
+
+    <div id="rulesPage" class="off d-flex flex-column justify-content-center" style="overflow: hidden;">
+      <div class="row" style="width: 100%; height: 15vh;">
+        <div class="col-4">
+          <button id="ruleBackBtn" type="button"
+            class="btn btn-danger backBtn padding align-self-center Kalam medBtnTxt">Go
+            Back</button>
+        </div>
+        <div class="col-4">
+          <div class="title Joti">Rules:</div>
+        </div>
+        <div class="col-4"></div>
+      </div>
+      <div class="d-flex justify-content-center Joti medTxt">It’s just rock, paper, scissors but with two extra
+        elements. Use the legend and diagram below to figure out which elements beat what.</div>
+      <div class="row pb-3" style="height: 70vh">
+        <div class="col-5 legend">
+          <div class="d-flex justify-content-end">
+            <img class="legendImg" src="./assets/rock.png" alt="">
+          </div>
+          <div class="d-flex align-self-center medTxt Joti">-Rock</div>
+          <div class="d-flex justify-content-end">
+            <img class="legendImg" src="./assets/paper.png" alt="">
+          </div>
+          <div class="d-flex align-self-center medTxt Joti">-Paper</div>
+          <div class="d-flex justify-content-end">
+            <img class="legendImg" src="./assets/scissors.png" alt="">
+          </div>
+          <div class="d-flex align-self-center medTxt Joti">-Scissors</div>
+          <div class="d-flex justify-content-end">
+            <img class="legendImg" src="./assets/lizard.png" alt="">
+          </div>
+          <div class="d-flex align-self-center medTxt Joti">-Lizard</div>
+          <div class="d-flex justify-content-end">
+            <img class="legendImg" src="./assets//spock.png" alt="">
+          </div>
+          <div class="d-flex align-self-center medTxt Joti">-Spock</div>
+        </div>
+        <div class="col-7 d-flex justify-content-center align-self-center">
+          <img class="simpleImage" src="./assets/simple.webp" alt="">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div id="playScreen" class="off container-fluid d-flex flex-column justify-content-around"
+      style="overflow: hidden;">
+      <div class="row" style="margin-bottom: -5vh;">
+        <div class="col"></div>
+        <div id="playHeader" class="col-6 d-flex justify-content-center title Joti">Choose Your<br>Element</div>
+        <div class="col d-flex justify-content-end">
+          <button id="optionsBtn" type="button" class="btn btn-secondary optionBtn Kalam m-4">Options</button>
+        </div>
+      </div>
+
+      <div id="PlayerOneContainer" class="container">
+        <div class="scoreGrid">
+          <div class="Joti playerTxt">Player One</div>
+          <div id="playerOneScoreStat" class="Joti playerTxt d-flex justify-content-end">Score: (0/5)</div>
+        </div>
+        <div class="elements">
+          <img id="rock1" class="elementBtn" src="./assets/rock.png" alt="" style="width: 15vh;">
+          <img id="paper1" class="elementBtn" src="./assets/paper.png" alt="" style="width: 15vh;">
+          <img id="scissors1" class="elementBtn" src="./assets/scissors.png" alt="" style="width: 15vh;">
+          <img id="lizard1" class="elementBtn" src="./assets/lizard.png" alt="" style="width: 15vh;">
+          <img id="spock1" class="elementBtn" src="./assets/spock.png" alt="" style="width: 15vh;">
+        </div>
+      </div>
+
+      <div id="PlayerTwoContainer" class="container">
+        <div class="scoreGrid">
+          <div class="Joti playerTxt">Player Two</div>
+          <div id="playerTwoScoreStat" class="Joti playerTxt d-flex justify-content-end">Score: (0/5)</div>
+        </div>
+        <div class="elements">
+          <img id="rock2" class="elementBtn" src="./assets/rock.png" alt="" style="width: 15vh;">
+          <img id="paper2" class="elementBtn" src="./assets/paper.png" alt="" style="width: 15vh;">
+          <img id="scissors2" class="elementBtn" src="./assets/scissors.png" alt="" style="width: 15vh;">
+          <img id="lizard2" class="elementBtn" src="./assets/lizard.png" alt="" style="width: 15vh;">
+          <img id="spock2" class="elementBtn" src="./assets/spock.png" alt="" style="width: 15vh;">
+        </div>
+      </div>
+
+      <div id="bottomScreen" class="container">
+        <div class="row">
+          <div class="col d-flex justify-content-end">
+            <img src="./assets/float-like-a-butterfly-sting-like-a-bee.gif" alt="" style="width: 100px;">
+          </div>
+          <div class="col d-flex justify-content-center align-items-center">
+            <button id="fightBtn" type="button"
+              class="btn btn-danger Kalam fightBtn faded unclickable">Fight!!!</button>
+          </div>
+          <div class="col">
+            <img src="./assets/ravaoui-ken-masters.gif" alt="" style="width: 120px;">
+          </div>
+        </div>
+      </div>
+
+      <div id="bottomScreenPlayerOneWin" class="off container">
+        <div class="row">
+          <div class="col ">
+
+          </div>
+          <div class="col d-flex justify-content-center align-items-center">
+            <img src="./assets/street-fighter.gif" alt="" style="width: 35vh;">
+          </div>
+          <div class="col d-flex justify-content-end">
+            <img id="nextBtnPlayerOneWins"  class="nextBtn" src="./assets/Next Button.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div id="bottomScreenPlayerTwoWin" class="off container">
+        <div class="row">
+          <div class="col ">
+
+          </div>
+          <div class="col d-flex justify-content-center align-items-center">
+            <img src="./assets/ken-street-fighter.gif" alt="" style="width: 35vh;">
+          </div>
+          <div class="col d-flex justify-content-end">
+            <img id="nextBtnPlayerTwoWins" class="nextBtn" src="./assets/Next Button.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div id="bottomScreenDraw" class="off container">
+        <div class="row">
+          <div class="col ">
+
+          </div>
+          <div class="col d-flex justify-content-center align-items-center">
+            <img src="./assets/ken-street-fighter.gif" alt="" style="width: 35vh;">
+            <img src="./assets/street-fighter.gif" alt="" style="width: 35vh;">
+          </div>
+          <div class="col d-flex justify-content-end">
+            <img id="nextBtnDraw" class="nextBtn" src="./assets/Next Button.png" alt="">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="Joti playTxt">
+          <div id="playerOneStatus">Player One Needs to Select</div>/<div id="playerTwoStatus">Player Two Needs to
+            Select</div>/<div id="overallStatus">You Are Not Ready To Fight</div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div id="winnerScreen" class="off container d-flex flex-column justify-content-between">
+      
+      <div class="row">
+        <div class="col d-flex flex-column align-items-start">
+          <div class="winScreenTxt Joti" style="text-decoration: underline;">Player 1</div>
+          <div id="playerOneFinalScore" class="winScreenTxt Joti">Score</div>
+        </div>
+        <div id="winnerScreenTitle" class="col-6 Joti  title">Player X<br>WINS!!!!!</div>
+        <div class="col d-flex flex-column align-items-end">
+          <div class="winScreenTxt Joti" style="text-decoration: underline;">Player 2</div>
+          <div id="playerTwoFinalScore" class="winScreenTxt Joti">Score</div>
+        </div>
+      </div>
+
+      <div id class="row">
+        <div class="col"></div>
+        <div id="playerOneWins" class="col off">
+          <img src="./assets/street-fighter.gif" alt="" style="width: 80vh;  margin-top: 15vh">
+        </div>
+        <div id="playerTwoWins" class="col">
+          <img src="./assets/ken-street-fighter.gif" alt="" style="width: 80vh;">
+        </div>
+        <div class="col d-flex justify-content-end align-items-end">
+          <button id="quitBtn2" type="button" class="btn btn-danger endQuitBtn Kalam" style="margin-right: -25%; margin-bottom: 10%;">Quit</button>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+    <div id="optionScreen" class="off container-fluid d-flex justify-content-center">
+      <div class="align-self-center d-flex" style="height: 45vh; margin-bottom: 15vh;">
+        <div class="d-flex flex-column justify-content-around">
+          <div class="d-flex justify-content-center align-self-center Kalam title" style="margin-bottom: -3vh">
+            Options
+          </div>
+          <div class="d-flex justify-content-center">
+            <button id="resumeBtn" type="button" class="btn btn-warning optionPageBtn Kalam black">Resume Match</button>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button id="rulesBtn2" type="button" class="btn btn-success optionPageBtn Kalam black">See Rules</button>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button id="changeBackgroundBtn2" type="button" class="btn btn-primary optionPageBtn Kalam black">Change
+              Background</button>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button id="quitBtn" type="button" class="btn btn-danger optionPageBtn Kalam black">Quit</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  </div>
+
+
+  <script type="module" src="/scripts/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
