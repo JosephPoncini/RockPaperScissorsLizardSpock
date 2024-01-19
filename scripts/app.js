@@ -25,6 +25,7 @@ let playerTwoScoreStat = document.getElementById("playerTwoScoreStat");
 let playerOneFinalScore = document.getElementById("playerOneFinalScore");
 let playerTwoFinalScore = document.getElementById("playerTwoFinalScore");
 let winnerScreenTitle = document.getElementById("winnerScreenTitle");
+let playerTwoName = document.getElementById("playerTwoName");
 
 let changeBackgroundBtn = document.getElementById("changeBackgroundBtn");
 let changeBackgroundBtn2 = document.getElementById("changeBackgroundBtn2");
@@ -70,15 +71,47 @@ let readyToFight = false;
 let currentWinner = "";
 let playerOneScore = 0;
 let playerTwoScore = 0;
-let bestOutOf = 1;
+let bestOutOf = 3;
 let gameOver = false;
 let elementChosen1;
 let elementChosen2;
 let selecting = true;
 
+let computerPlaying = false;
+
 
 let elementOneArray = [rock1, paper1, scissors1, lizard1, spock1];
 let elementTwoArray = [rock2, paper2, scissors2, lizard2, spock2];
+
+
+
+//async function
+const randomRPSLS = async () => {
+    const promise = await fetch(`https://rpslsapi.azurewebsites.net/RPSLS`);
+    const data = await promise.text();
+    playerTwoChoice = data;
+    playerTwoReady = true;
+    console.log(playerTwoChoice);
+
+    switch (playerTwoChoice) {
+        case "Rock":
+            elementChosen2 = rock2;
+            break;
+        case "Paper":
+            elementChosen2 = paper2;
+            break;
+        case "Scissors":
+            elementChosen2 = scissors2;
+            break;
+        case "Lizard":
+            elementChosen2 = lizard2;
+            break;
+        case "Spock":
+            elementChosen2 = spock2;
+            break;
+    }
+
+}
 
 //Btn Functions
 changeBackgroundBtn.addEventListener("click", function () {
@@ -92,29 +125,34 @@ changeBackgroundBtn2.addEventListener("click", function () {
 oneVOneBtn.addEventListener("click", function () {
     oneVCPUBtn.classList.add("faded");
     oneVOneBtn.classList.remove("faded")
+    computerPlaying = false;
 })
 
 oneVCPUBtn.addEventListener("click", function () {
     oneVCPUBtn.classList.remove("faded");
     oneVOneBtn.classList.add("faded")
+    computerPlaying = true;
 })
 
 bestOfOneBtn.addEventListener("click", function () {
     bestOfOneBtn.classList.remove("faded");
     twoOutOfThreeBtn.classList.add("faded");
     threeOutOfFiveBtn.classList.add("faded");
+    bestOutOf = 1;
 })
 
 twoOutOfThreeBtn.addEventListener("click", function () {
     bestOfOneBtn.classList.add("faded");
     twoOutOfThreeBtn.classList.remove("faded");
     threeOutOfFiveBtn.classList.add("faded");
+    bestOutOf = 3;
 })
 
 threeOutOfFiveBtn.addEventListener("click", function () {
     bestOfOneBtn.classList.add("faded");
     twoOutOfThreeBtn.classList.add("faded");
     threeOutOfFiveBtn.classList.remove("faded");
+    bestOutOf = 4;
 })
 
 playBtn.addEventListener("click", function () {
@@ -204,35 +242,35 @@ spock1.addEventListener("click", function () {
 })
 
 rock2.addEventListener("click", function () {
-    if (selecting) {
+    if (selecting && !computerPlaying) {
         elementChosen2 = rock2;
         SelectElement("Rock", 2);
     }
 
 })
 paper2.addEventListener("click", function () {
-    if (selecting) {
+    if (selecting && !computerPlaying) {
         elementChosen2 = paper2;
         SelectElement("Paper", 2);
     }
 
 })
 scissors2.addEventListener("click", function () {
-    if (selecting) {
+    if (selecting && !computerPlaying) {
         elementChosen2 = scissors2;
         SelectElement("Scissors", 2);
     }
 
 })
 lizard2.addEventListener("click", function () {
-    if (selecting) {
+    if (selecting && !computerPlaying) {
         elementChosen2 = lizard2;
         SelectElement("Lizard", 2);
     }
 
 })
 spock2.addEventListener("click", function () {
-    if (selecting) {
+    if (selecting && !computerPlaying) {
         elementChosen2 = spock2;
         SelectElement("Spock", 2);
     }
@@ -242,6 +280,7 @@ spock2.addEventListener("click", function () {
 fightBtn.addEventListener("click", function () {
 
     if (readyToFight) {
+        readyToFight = false;
         selecting = false;
 
         bottomScreen.classList.add("off");
@@ -302,7 +341,12 @@ nextBtnPlayerTwoWins.addEventListener("click", function () {
         winnerScreen.classList.remove("off");
         playerOneWins.classList.add("off");
         playerTwoWins.classList.remove("off");
-        winnerScreenTitle.innerText = "Player 2 \n WINS!!!!!";
+        if (computerPlaying) {
+            winnerScreenTitle.innerText = "The CPU \n WINS!!!!!";
+        } else {
+            winnerScreenTitle.innerText = "Player 2 \n WINS!!!!!";
+        }
+
         PutUpScores();
 
     }
@@ -506,11 +550,27 @@ function FadeSelectors() {
 function Initiate() {
     playerOneScoreStat.innerText = `Score: (${playerOneScore}/${bestOutOf})`;
     playerTwoScoreStat.innerText = `Score: (${playerTwoScore}/${bestOutOf})`;
+
+    if (computerPlaying) {
+        playerTwoName.innerText = "The CPU";
+        playerTwoStatus.innerText = "The CPU Has Selected";
+        elementTwoArray.forEach(x => {
+            x.classList.remove("elementBtn");
+            x.classList.add("faded");
+        });
+        randomRPSLS();
+    } else {
+        playerTwoName.innerText = "Player Two";
+        playerTwoStatus.innerText = "Player Two Needs to Select";
+    }
+
+
 }
 
 function RefreshPlayScreen() {
 
     selecting = true;
+
 
     elementOneArray.forEach(x => {
         x.classList.add("elementBtn");
@@ -527,10 +587,18 @@ function RefreshPlayScreen() {
     playerOneStatus.innerText = "Player One Needs to Select";
     playerTwoStatus.innerText = "Player Two Needs to Select";
     overallStatus.innerText = "You Are Not Ready To Fight";
+    playerOneChoice = "";
+    playerTwoChoice = "";
+    playerOneReady = false;
+    playerTwoReady = false;
 
     readyToFight = false;
     fightBtn.classList.add("faded");
     fightBtn.classList.add("unclickable");
+
+    if (computerPlaying) {
+        Initiate();
+    }
 }
 
 function PutUpScores() {
@@ -548,7 +616,6 @@ function Reset() {
     currentWinner = "";
     playerOneScore = 0;
     playerTwoScore = 0;
-    bestOutOf = 1;
     gameOver = false;
     elementChosen1;
     elementChosen2;

@@ -266,6 +266,12 @@
     width: 20vh;
     height: min-content;
     align-self: end;
+    cursor: pointer;    
+    border-radius: 10vh;
+}
+
+.nextBtn:hover{
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .winScreenTxt{
@@ -280,3 +286,41 @@
     font-size: 50px;
     border-radius: 20px;
 }
+
+.btn-primary{
+    --bs-btn-bg: #0d6efd;
+    --bs-btn-border-color: #0d6efd;
+    --bs-btn-hover-bg: #0b5ed7;
+    --bs-btn-hover-border-color: #0a58ca;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.btn-danger{
+
+}
+
+.btn-warning{
+
+}
+
+.btn-success{
+
+}
+
+.btn-secondary{
+
+}
+
+/* <button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<button type="button" class="btn btn-link">Link</button> */
