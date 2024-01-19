@@ -91,7 +91,6 @@ const randomRPSLS = async () => {
     const data = await promise.text();
     playerTwoChoice = data;
     playerTwoReady = true;
-    console.log(playerTwoChoice);
 
     switch (playerTwoChoice) {
         case "Rock":
