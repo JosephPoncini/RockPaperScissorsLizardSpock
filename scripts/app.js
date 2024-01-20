@@ -208,6 +208,7 @@ threeOutOfFiveBtn.addEventListener("click", function () {
 })
 
 playBtn.addEventListener("click", function () {
+    RefreshPlayScreen();
     titleScreen.classList.add("off");
     playScreen.classList.remove("off");
     Initiate();
@@ -312,7 +313,7 @@ scissors1.addEventListener("click", function () {
         elementChosen1 = scissors1;
         SelectElement("Scissors", 1);
     }
-
+computerPlaying
 })
 lizard1.addEventListener("click", function () {
     if (selecting) {
@@ -375,7 +376,7 @@ fightBtn.addEventListener("click", function () {
 
         bottomScreen.classList.add("off");
         playerOneStatus.innerText = `Player One Chose ${playerOneChoice}`;
-        playerTwoStatus.innerText = `Player Two Chose ${playerTwoChoice}`;
+        playerTwoStatus.innerText = computerPlaying? `The CPU Chose ${playerTwoChoice}` : `Player Two Chose ${playerTwoChoice}`;
         currentWinner = DetermineWinner(playerOneChoice, playerTwoChoice);
         SetBottomScreen(currentWinner);
 
@@ -540,7 +541,7 @@ function DetermineWinner(choice1, choice2) {
                     overallStatus.innerText = "The Elements Cancel Each Other Out";
                     return "draw";
                 case "Paper":
-                    overallStatus.innerText = "Paper Covers Rock - Point Player 2";
+                    overallStatus.innerText = computerPlaying? "Paper Covers Rock - Point CPU" : "Paper Covers Rock - Point Player 2";
                     return "player2";
                 case "Scissors":
                     overallStatus.innerText = "Rock Crushes Scissors - Point Player 1";
@@ -549,7 +550,7 @@ function DetermineWinner(choice1, choice2) {
                     overallStatus.innerText = "Rock Crushes Lizard - Point Player 1";
                     return "player1";
                 case "Spock":
-                    overallStatus.innerText = "Spock Vaporizes Rock - Point Player 2";
+                    overallStatus.innerText = computerPlaying? "Spock Vaporizes Rock - Point CPU" : "Spock Vaporizes Rock - Point Player 2";
                     return "player2";
             }
         case "Paper":
@@ -561,10 +562,10 @@ function DetermineWinner(choice1, choice2) {
                     overallStatus.innerText = "The Elements Cancel Each Other Out";
                     return "draw";
                 case "Scissors":
-                    overallStatus.innerText = "Scissors Cut Paper - Point Player 2";
+                    overallStatus.innerText = computerPlaying? "Scissors Cut Paper - Point CPU" : "Scissors Cut Paper - Point Player 2";
                     return "player2";
                 case "Lizard":
-                    overallStatus.innerText = "Lizard Eats Paper - Point Player 2";
+                    overallStatus.innerText = computerPlaying? "Lizard Eats Paper - Point CPU" : "Lizard Eats Paper - Point Player 2";
                     return "player2";
                 case "Spock":
                     overallStatus.innerText = "Paper Disproves Spock - Point Player 1";
@@ -573,7 +574,7 @@ function DetermineWinner(choice1, choice2) {
         case "Scissors":
             switch (choice2) {
                 case "Rock":
-                    overallStatus.innerText = "Rock Crushes Scissors - Point Player 2";
+                    overallStatus.innerText = computerPlaying?"Rock Crushes Scissors - Point CPU" : "Rock Crushes Scissors - Point Player 2";
                     return "player2";
                 case "Paper":
                     overallStatus.innerText = "Scissors Cut Paper - Point Player 1";
@@ -585,19 +586,19 @@ function DetermineWinner(choice1, choice2) {
                     overallStatus.innerText = "Scissors Decapitate Lizard - Point Player 1";
                     return "player1";
                 case "Spock":
-                    overallStatus.innerText = "Spock Smashes Scissors - Point Player 2";
+                    overallStatus.innerText = computerPlaying? "Spock Smashes Scissors - Point CPU" : "Spock Smashes Scissors - Point Player 2";
                     return "player2";
             }
         case "Lizard":
             switch (choice2) {
                 case "Rock":
-                    overallStatus.innerText = "Rock Crushes Lizard - Point Player 2";
+                    overallStatus.innerText = computerPlaying? "Rock Crushes Lizard - Point CPU" : "Rock Crushes Lizard - Point Player 2";
                     return "player2";
                 case "Paper":
                     overallStatus.innerText = "Lizard Eats Paper - Point Player 1";
                     return "player1";
                 case "Scissors":
-                    overallStatus.innerText = "Scissors Decapitate Lizard - Point Player 2";
+                    overallStatus.innerText = computerPlaying? "Scissors Decapitate Lizard - Point CPU" : "Scissors Decapitate Lizard - Point Player 2";
                     return "player2";
                 case "Lizard":
                     overallStatus.innerText = "The Lizards Eat Each Other";
@@ -612,13 +613,13 @@ function DetermineWinner(choice1, choice2) {
                     overallStatus.innerText = "Spock Vaporizes Rock - Point Player 1";
                     return "player1";
                 case "Paper":
-                    overallStatus.innerText = "Paper Disproves Spock - Point Player 2";
+                    overallStatus.innerText = computerPlaying? "Paper Disproves Spock - Point CPU" : "Paper Disproves Spock - Point Player 2";
                     return "player2";
                 case "Scissors":
                     overallStatus.innerText = "Spock Smashes Scissors - Point Player 1";
                     return "player1";
                 case "Lizard":
-                    overallStatus.innerText = "Lizard Poisons Spock - Point Player 2";
+                    overallStatus.innerText = computerPlaying? "Lizard Poisons Spock - Point CPU" : "Lizard Poisons Spock - Point Player 2";
                     return "player2";
                 case "Spock":
                     overallStatus.innerText = "Fighting is Not the Vulcan Way"
@@ -637,14 +638,14 @@ function SetBottomScreen(winner) {
             break;
         case "player2":
             bottomScreenPlayerTwoWin.classList.remove("off");
-            playHeader.innerText = "Player Two \n Takes the Round"
+            playHeader.innerText = computerPlaying?"The CPU \n Takes the Round" : "Player Two \n Takes the Round";
             break;
         case "draw":
             bottomScreenDraw.classList.remove("off");
             playHeader.innerText = "It's A \n Draw!!!!"
             break;
         default:
-            console.log("Error in Bottm Screen Removal")
+            console.log("Error in Bottom Screen Removal")
     }
 }
 
