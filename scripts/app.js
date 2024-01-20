@@ -91,6 +91,7 @@ let gameOver = false;
 let elementChosen1;
 let elementChosen2;
 let selecting = true;
+let hasNotQuit = false;
 
 let computerPlaying = false;
 
@@ -406,11 +407,12 @@ nextBtnDraw.addEventListener("click", function () {
 nextBtnPlayerOneWins.addEventListener("click", function () {
     if (gameOver) {
 
+        hasNotQuit = true;
         roundEndSound.play();
         if (musicPlaying) {
             round1Music.pause();
             roundEndSound.addEventListener("ended", function () {
-                if (isPlay) {
+                if (hasNotQuit) {
                     endMusic.play();
                 }
             });
@@ -434,12 +436,13 @@ nextBtnPlayerOneWins.addEventListener("click", function () {
 nextBtnPlayerTwoWins.addEventListener("click", function () {
     if (gameOver) {
 
+        hasNotQuit = true;
         roundEndSound.play();
         if (musicPlaying) {
             round1Music.pause();
 
             roundEndSound.addEventListener("ended", function () {
-                if (isPlay) {
+                if (hasNotQuit) {
                     endMusic.play();
                 }
             });
@@ -470,6 +473,7 @@ quitBtn2.addEventListener("click", function () {
         endMusic.pause();
         titleMusic.play();
     }
+    hasNotQuit = false;
 
     winnerScreen.classList.add("off");
     titleScreen.classList.remove("off");
