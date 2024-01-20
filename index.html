@@ -13,11 +13,7 @@
 
 <body id="body" class="bg bgimage1">
 
-  <audio id="titleMusic" autoplay>
-    <source src="./audio/TITLE.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
-
+  <audio id="titleMusic" src="./audio/TITLE.mp3" preload="auto"></audio>
   <audio id="fightSound" src="./audio/fight.mp3"  preload="auto"></audio>
   <audio id="round1Music" src="./audio/ROUND1.mp3"  preload="auto"></audio>
   <audio id="roundEndSound" src="./audio/ROUND CLEAR.mp3" preload="auto"></audio>
@@ -46,7 +42,7 @@
           <button id="changeBackgroundBtn" type="button" class="btn btn-primary optionBtn Kalam smallBtnTxt">Change
             Background</button>
             <button id="musicBtn" type="button" class="btn btn-secondary optionBtn Kalam smallBtnTxt">
-              Music ON</button>
+              Music OFF</button>
         </div>
         <button id="playBtn" type="button"
           class="btn btn-danger optionBtn margins align-self-center Kalam smallBtnTxt">Play</button>

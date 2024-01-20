@@ -68,16 +68,9 @@ let round1Music = document.getElementById("round1Music");
 let endMusic = document.getElementById("endMusic");
 let rulesMusic = document.getElementById("rulesMusic");
 
-let musicPlaying = true;
+let musicPlaying = false;
 
 //start audio
-
-if (titleMusic) {
-    titleMusic.addEventListener('loadeddata', function () {
-        titleMusic.play();
-    });
-}
-
 
 
 //Initate other elements
