@@ -8,9 +8,22 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="shortcut icon" href="#">
 </head>
 
 <body id="body" class="bg bgimage1">
+
+  <audio id="titleMusic" autoplay>
+    <source src="./audio/TITLE.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <audio id="fightSound" src="./audio/fight.mp3"  preload="auto"></audio>
+  <audio id="round1Music" src="./audio/ROUND1.mp3"  preload="auto"></audio>
+  <audio id="roundEndSound" src="./audio/ROUND CLEAR.mp3" preload="auto"></audio>
+  <audio id="endMusic" src="./audio/END.mp3" preload="auto"></audio>
+  <audio id="rulesMusic" src="./audio/RULES.mp3" preload="auto"></audio>
+
   <div class="content">
 
     <div id="titleScreen" class="d-flex justify-content-center align-self-center ">
@@ -28,10 +41,12 @@
             7</button>
         </div>
         <div class="padding optionBtns">
-          <button id="rulesBtn" type="button" class="me-4 btn btn-success optionBtn Kalam smallBtnTxt">See
+          <button id="rulesBtn" type="button" class="btn btn-success optionBtn Kalam smallBtnTxt">See
             Rules</button>
-          <button id="changeBackgroundBtn" type="button" class="ms-4 btn btn-primary optionBtn Kalam smallBtnTxt">Change
+          <button id="changeBackgroundBtn" type="button" class="btn btn-primary optionBtn Kalam smallBtnTxt">Change
             Background</button>
+            <button id="musicBtn" type="button" class="btn btn-secondary optionBtn Kalam smallBtnTxt">
+              Music ON</button>
         </div>
         <button id="playBtn" type="button"
           class="btn btn-danger optionBtn margins align-self-center Kalam smallBtnTxt">Play</button>
@@ -107,7 +122,8 @@
         <div class="elements">
           <img id="rock1" class="elementBtn" src="./assets/rock.png" alt="rock hand symbol" style="width: 15vh;">
           <img id="paper1" class="elementBtn" src="./assets/paper.png" alt="paper hand symbol" style="width: 15vh;">
-          <img id="scissors1" class="elementBtn" src="./assets/scissors.png" alt="scissors hand symbol" style="width: 15vh;">
+          <img id="scissors1" class="elementBtn" src="./assets/scissors.png" alt="scissors hand symbol"
+            style="width: 15vh;">
           <img id="lizard1" class="elementBtn" src="./assets/lizard.png" alt="lizard hand symbol" style="width: 15vh;">
           <img id="spock1" class="elementBtn" src="./assets/spock.png" alt="spock hand symbols" style="width: 15vh;">
         </div>
@@ -121,7 +137,8 @@
         <div class="elements">
           <img id="rock2" class="elementBtn" src="./assets/rock.png" alt="rock hand symbol" style="width: 15vh;">
           <img id="paper2" class="elementBtn" src="./assets/paper.png" alt="paper hand symbol" style="width: 15vh;">
-          <img id="scissors2" class="elementBtn" src="./assets/scissors.png" alt="scissors hand symbol" style="width: 15vh;">
+          <img id="scissors2" class="elementBtn" src="./assets/scissors.png" alt="scissors hand symbol"
+            style="width: 15vh;">
           <img id="lizard2" class="elementBtn" src="./assets/lizard.png" alt="lizard hand symbol" style="width: 15vh;">
           <img id="spock2" class="elementBtn" src="./assets/spock.png" alt="spock hand symbol" style="width: 15vh;">
         </div>
@@ -130,7 +147,8 @@
       <div id="bottomScreen" class="container">
         <div class="row">
           <div class="col d-flex justify-content-end">
-            <img src="./assets/float-like-a-butterfly-sting-like-a-bee.gif" alt="ryu pouncing in place" style="width: 100px;">
+            <img src="./assets/float-like-a-butterfly-sting-like-a-bee.gif" alt="ryu pouncing in place"
+              style="width: 100px;">
           </div>
           <div class="col d-flex justify-content-center align-items-center">
             <button id="fightBtn" type="button"
@@ -151,7 +169,7 @@
             <img src="./assets/street-fighter.gif" alt="ryo punch" style="width: 35vh;">
           </div>
           <div class="col d-flex justify-content-end">
-            <img id="nextBtnPlayerOneWins"  class="nextBtn" src="./assets/Next Button.png" alt="next arrow button">
+            <img id="nextBtnPlayerOneWins" class="nextBtn" src="./assets/Next Button.png" alt="next arrow button">
           </div>
         </div>
       </div>
@@ -200,7 +218,7 @@
 
 
     <div id="winnerScreen" class="off container d-flex flex-column justify-content-between">
-      
+
       <div class="row">
         <div class="col d-flex flex-column align-items-start">
           <div class="winScreenTxt Joti" style="text-decoration: underline;">Player 1</div>
@@ -222,7 +240,8 @@
           <img src="./assets/ken-street-fighter.gif" alt="ken spin kick" style="width: 80vh;">
         </div>
         <div class="col d-flex justify-content-end align-items-end">
-          <button id="quitBtn2" type="button" class="btn btn-danger endQuitBtn Kalam" style="margin-right: -25%; margin-bottom: 10%;">Quit</button>
+          <button id="quitBtn2" type="button" class="btn btn-danger endQuitBtn Kalam"
+            style="margin-right: -25%; margin-bottom: 10%;">Quit</button>
         </div>
       </div>
 
@@ -233,7 +252,7 @@
 
 
     <div id="optionScreen" class="off container-fluid d-flex justify-content-center">
-      <div class="align-self-center d-flex" style="height: 45vh; margin-bottom: 15vh;">
+      <div class="align-self-center d-flex" style="height: 60vh; margin-bottom: 15vh;">
         <div class="d-flex flex-column justify-content-around">
           <div class="d-flex justify-content-center align-self-center Kalam title" style="margin-bottom: -3vh">
             Options
@@ -247,6 +266,9 @@
           <div class="d-flex justify-content-center">
             <button id="changeBackgroundBtn2" type="button" class="btn btn-primary optionPageBtn Kalam black">Change
               Background</button>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button id="musicBtn2" type="button" class="btn btn-secondary optionPageBtn Kalam black">Music ON</button>
           </div>
           <div class="d-flex justify-content-center">
             <button id="quitBtn" type="button" class="btn btn-danger optionPageBtn Kalam black">Quit</button>

@@ -46,6 +46,8 @@ let nextBtnDraw = document.getElementById("nextBtnDraw");
 let nextBtnPlayerTwoWins = document.getElementById("nextBtnPlayerTwoWins");
 let nextBtnPlayerOneWins = document.getElementById("nextBtnPlayerOneWins");
 let quitBtn2 = document.getElementById("quitBtn2");
+let musicBtn = document.getElementById("musicBtn");
+let musicBtn2 = document.getElementById("musicBtn2");
 
 let rock1 = document.getElementById("rock1");
 let paper1 = document.getElementById("paper1");
@@ -57,6 +59,26 @@ let paper2 = document.getElementById("paper2");
 let scissors2 = document.getElementById("scissors2");
 let lizard2 = document.getElementById("lizard2");
 let spock2 = document.getElementById("spock2");
+
+// music initializing
+let fightSound = document.getElementById("fightSound");
+let roundEndSound = document.getElementById("roundEndSound");
+let titleMusic = document.getElementById("titleMusic");
+let round1Music = document.getElementById("round1Music");
+let endMusic = document.getElementById("endMusic");
+let rulesMusic = document.getElementById("rulesMusic");
+
+let musicPlaying = true;
+
+//start audio
+
+if (titleMusic) {
+    titleMusic.addEventListener('loadeddata', function () {
+        titleMusic.play();
+    });
+}
+
+
 
 //Initate other elements
 let counter1 = 0;
@@ -82,6 +104,8 @@ let computerPlaying = false;
 
 let elementOneArray = [rock1, paper1, scissors1, lizard1, spock1];
 let elementTwoArray = [rock2, paper2, scissors2, lizard2, spock2];
+
+fightSound.volume = 0.5;
 
 
 
@@ -113,6 +137,35 @@ const randomRPSLS = async () => {
 }
 
 //Btn Functions
+
+musicBtn.addEventListener("click", function () {
+
+    if (musicPlaying) {
+        musicBtn.innerText = "Music OFF";
+        musicBtn2.innerText = "Music OFF";
+        musicPlaying = false;
+        titleMusic.pause();
+    } else {
+        musicBtn.innerText = "Music ON";
+        musicBtn2.innerText = "Music ON";
+        musicPlaying = true;
+        titleMusic.play();
+    }
+})
+
+musicBtn2.addEventListener("click", function () {
+
+    if (musicPlaying) {
+        musicBtn.innerText = "Music OFF";
+        musicBtn2.innerText = "Music OFF";
+        musicPlaying = false;
+    } else {
+        musicBtn.innerText = "Music ON";
+        musicBtn2.innerText = "Music ON";
+        musicPlaying = true;
+    }
+})
+
 changeBackgroundBtn.addEventListener("click", function () {
     changeBackground();
 })
@@ -159,23 +212,47 @@ playBtn.addEventListener("click", function () {
     playScreen.classList.remove("off");
     Initiate();
     isPlay = true;
+    if (musicPlaying) {
+        titleMusic.pause();
+        round1Music.play();
+    }
+
 })
 
 rulesBtn.addEventListener("click", function () {
+    if (musicPlaying) {
+        titleMusic.pause();
+        rulesMusic.play();
+    }
+
+
     titleScreen.classList.add("off");
     rulesPage.classList.remove("off");
 })
 
 rulesBtn2.addEventListener("click", function () {
+    if (musicPlaying) {
+        rulesMusic.play();
+    }
+
     optionScreen.classList.add("off");
     rulesPage.classList.remove("off");
 })
 
 ruleBackBtn.addEventListener("click", function () {
     if (isPlay) {
+        if (musicPlaying) {
+            rulesMusic.pause();
+        }
+
         optionScreen.classList.remove("off");
         rulesPage.classList.add("off");
     } else {
+        if (musicPlaying) {
+            rulesMusic.pause();
+            titleMusic.play();
+        }
+
         titleScreen.classList.remove("off");
         rulesPage.classList.add("off");
     }
@@ -183,16 +260,28 @@ ruleBackBtn.addEventListener("click", function () {
 })
 
 optionsBtn.addEventListener("click", function () {
+    if (musicPlaying) {
+        round1Music.pause();
+    }
+
     playScreen.classList.add("off");
     optionScreen.classList.remove("off");
 })
 
 resumeBtn.addEventListener("click", function () {
+    if (musicPlaying) {
+        round1Music.play();
+    }
+
     playScreen.classList.remove("off");
     optionScreen.classList.add("off");
 })
 
 quitBtn.addEventListener("click", function () {
+    if (musicPlaying) {
+        titleMusic.play();
+    }
+
     optionScreen.classList.add("off");
     titleScreen.classList.remove("off");
     isPlay = false;
@@ -279,6 +368,8 @@ spock2.addEventListener("click", function () {
 fightBtn.addEventListener("click", function () {
 
     if (readyToFight) {
+        fightSound.play();
+
         readyToFight = false;
         selecting = false;
 
@@ -320,6 +411,18 @@ nextBtnDraw.addEventListener("click", function () {
 
 nextBtnPlayerOneWins.addEventListener("click", function () {
     if (gameOver) {
+
+        roundEndSound.play();
+        if (musicPlaying) {
+            round1Music.pause();
+            roundEndSound.addEventListener("ended", function () {
+                if (isPlay) {
+                    endMusic.play();
+                }
+            });
+        }
+
+
         playScreen.classList.add("off");
         winnerScreen.classList.remove("off");
         playerOneWins.classList.remove("off");
@@ -336,6 +439,18 @@ nextBtnPlayerOneWins.addEventListener("click", function () {
 
 nextBtnPlayerTwoWins.addEventListener("click", function () {
     if (gameOver) {
+
+        roundEndSound.play();
+        if (musicPlaying) {
+            round1Music.pause();
+
+            roundEndSound.addEventListener("ended", function () {
+                if (isPlay) {
+                    endMusic.play();
+                }
+            });
+        }
+
         playScreen.classList.add("off");
         winnerScreen.classList.remove("off");
         playerOneWins.classList.add("off");
@@ -356,6 +471,12 @@ nextBtnPlayerTwoWins.addEventListener("click", function () {
 })
 
 quitBtn2.addEventListener("click", function () {
+
+    if (musicPlaying) {
+        endMusic.pause();
+        titleMusic.play();
+    }
+
     winnerScreen.classList.add("off");
     titleScreen.classList.remove("off");
     isPlay = false;
